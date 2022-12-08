@@ -15,7 +15,7 @@ phases:
   build:
     commands:
         - echo Build started 
-        - npm run build:ssr
+        - npm run build
   post_build:
     commands:
         - aws s3 cp s3://angular-app-buck11-tv2/Procfile ./dist
