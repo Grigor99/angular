@@ -15,13 +15,6 @@ export class EmployeeService {
     return this.http.get<Employee[]>(`${this.apiServerUrl}/employee/all`);
   }
 
-
-
-  // public getIngreds(): Observable<Data> {
-  //   return this.http.get<Data>(`${this.apiServerUrl}/api/foodfittery-core/ingredients?locale=de&supportedApiVersion=1`);
-  // }
-  
-
   public getEmployeeById(id:number): Observable<Employee> {
     return this.http.get<Employee>(`${this.apiServerUrl}/employee/find/${id}`);
   }
@@ -38,3 +31,4 @@ export class EmployeeService {
     return this.http.delete<void>(`${this.apiServerUrl}/employee/delete/${employeeId}`);
   }
 }
+

@@ -13,7 +13,8 @@ export class EmployeesComponent {
   public employees!: Employee[];
   public title: any;
 
-  constructor(private employeeService: EmployeeService){}
+  constructor(private employeeService: EmployeeService){
+  }
   
 
    public getEmployees(): void {
@@ -35,20 +36,8 @@ export class EmployeesComponent {
     button.type = 'button';
     button.style.display = 'none';
     button.setAttribute('data-toggle', 'modal');
-    // if (mode === 'get') {
-    //   button.setAttribute('data-target', '#addEmployeeModal');
-    // }
-    // if (mode === 'edit') {
-    //   this.editEmployee = employee;
-    //   button.setAttribute('data-target', '#updateEmployeeModal');
-    // }
-    // if (mode === 'delete') {
-    //   this.deleteEmployee = employee;
-    //   button.setAttribute('data-target', '#deleteEmployeeModal');
-    // }
     container!.appendChild(button);
     button.click();
   }
 
 }
-
