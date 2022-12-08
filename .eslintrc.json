@@ -1,0 +1,183 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "projects/**/*"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "parserOptions": {
+        "project": [
+          "tsconfig.json"
+        ],
+        "createDefaultProgram": true
+      },
+      "extends": [
+        "plugin:@angular-eslint/ng-cli-compat",
+        "plugin:@angular-eslint/ng-cli-compat--formatting-add-on",
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
+      "rules": {
+        "@angular-eslint/no-output-native": "error",
+        "@typescript-eslint/consistent-type-definitions": "error",
+        "@typescript-eslint/dot-notation": "off",
+        "@typescript-eslint/explicit-member-accessibility": [
+          "error",
+          {
+            "accessibility": "explicit",
+            "overrides": {
+              "constructors": "no-public"
+            }
+          }
+        ],
+        "@typescript-eslint/member-ordering": [
+          "error",
+          {
+            "default": [
+              "signature",
+
+              // Fields
+              "public-static-field",
+              "protected-static-field",
+              "private-static-field",
+              "public-decorated-field",
+              "protected-decorated-field",
+              "private-decorated-field",
+              ["decorated-get", "decorated-set"],
+              "public-instance-field",
+              "protected-instance-field",
+              "private-instance-field",
+              "public-abstract-field",
+              "protected-abstract-field",
+              "private-abstract-field",
+
+              // Constructors
+              "public-constructor",
+              "protected-constructor",
+              "private-constructor",
+
+              // Getters: Instance getters are ignored, so they can be grouped with decorated setters
+              "public-static-get",
+              "protected-static-get",
+              "private-static-get",
+              "public-abstract-get",
+              "protected-abstract-get",
+              "private-abstract-get",
+
+              // Setters: Instance setters are ignored, so they can be grouped with decorated getters
+              "public-static-set",
+              "protected-static-set",
+              "private-static-set",
+              "public-abstract-set",
+              "protected-abstract-set",
+              "private-abstract-set",
+
+              // Methods
+              "public-static-method",
+              "protected-static-method",
+              "private-static-method",
+              "public-decorated-method",
+              "protected-decorated-method",
+              "private-decorated-method",
+              "public-instance-method",
+              "protected-instance-method",
+              "private-instance-method",
+              "public-abstract-method",
+              "protected-abstract-method",
+              "private-abstract-method"
+            ]
+          }
+        ],
+        "@typescript-eslint/naming-convention": [
+          "error",
+          {
+            "selector": "default",
+            "format": [
+              "camelCase"
+            ],
+            "leadingUnderscore": "allow",
+            "trailingUnderscore": "allow"
+          },
+          {
+            "selector": "variable",
+            "format": [
+              "camelCase",
+              "UPPER_CASE"
+            ],
+            "leadingUnderscore": "allow",
+            "trailingUnderscore": "allow"
+          },
+          {
+            "selector": "typeLike",
+            "format": [
+              "PascalCase"
+            ]
+          },
+          {
+            "selector": "objectLiteralProperty",
+            "format": null
+          },
+          {
+            "selector": "enumMember",
+            "format": [
+              "PascalCase",
+              "UPPER_CASE"
+            ]
+          },
+          {
+            "selector": "property",
+            "modifiers": [
+              "static"
+            ],
+            "format": [
+              "UPPER_CASE"
+            ]
+          }
+        ],
+        "@typescript-eslint/no-empty-function": [
+          "error",
+          {
+            "allow": [
+              "arrowFunctions"
+            ]
+          }
+        ],
+        "@typescript-eslint/no-inferrable-types": [
+          "off",
+          {
+            "ignoreParameters": true
+          }
+        ],
+        "@typescript-eslint/no-use-before-define": "error",
+        "@typescript-eslint/no-shadow": "error",
+        "brace-style": [
+          "error",
+          "1tbs"
+        ],
+        "id-blacklist": "off",
+        "id-match": "off",
+        "max-len": [
+          "error",
+          {
+            "ignorePattern": "^import .*",
+            "code": 140
+          }
+        ],
+        "no-empty": "error",
+        "no-underscore-dangle": "off",
+        "no-shadow": "off"
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
+      "rules": {}
+    }
+  ]
+}
