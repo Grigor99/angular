@@ -1,8 +1,9 @@
 version: 0.2
+
 env:
     variables:
         CACHE_CONTROL: "86400"
-        S3_BUCKET: "arn:aws:s3:::angular-app-buck11-tv2"
+        S3_BUCKET: "{{s3_bucket_url}}"
         BUILD_FOLDER: "dist"
 phases:
   install:
@@ -11,19 +12,13 @@ phases:
     commands:
         - echo Installing source NPM dependencies...
         - npm install
-        - npm install -g @angular/cli@next
+        - npm install -g @angular/cli
   build:
     commands:
         - echo Build started 
-        - npm run build
-  post_build:
-    commands:
-        - aws s3 cp s3://angular-app-buck11-tv2/Procfile ./dist
-        - aws s3 cp s3://angular-app-buck11-tv2/.npmrc ./dist
-        - aws s3 cp s3://angular-app-buck11-tv2/package.json ./dist
-        - bash -c "if [ /"$CODEBUILD_BUILD_SUCCEEDING/" == /"0/" ]; then exit 1; fi"
- 
+        - ng build
 artifacts:
     files:
         - '**/*'
-    base-directory: 'dist'
+    base-directory: 'dist*'
+    discard-paths: yes
